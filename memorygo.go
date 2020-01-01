@@ -59,7 +59,7 @@ func listProcesses() []uint32 {
 // FindProcessByName returns processID
 func FindProcessByName(procName string) (uint32, error) {
 	for _, processID := range listProcesses() {
-		if getProcessName(processID) == procName {
+		if GetProcessName(processID) == procName {
 			return processID, nil
 		}
 	}
