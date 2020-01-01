@@ -46,7 +46,8 @@ func GetProcessName(processID uint32) string {
 	return "<UNKNOWN>"
 }
 
-func listProcesses() []uint32 {
+// ListProcesses lists all processes running
+func ListProcesses() []uint32 {
 	sz := uint32(1000)
 	procs := make([]uint32, sz)
 	var bytesReturned uint32
@@ -58,7 +59,7 @@ func listProcesses() []uint32 {
 
 // FindProcessByName returns processID
 func FindProcessByName(procName string) (uint32, error) {
-	for _, processID := range listProcesses() {
+	for _, processID := range ListProcesses() {
 		if GetProcessName(processID) == procName {
 			return processID, nil
 		}
